@@ -100,13 +100,20 @@ int main() {
     char **word_array = read_words(file, n_total_words);
     fclose(file);
 
+    int sum_words;
+
     for (char letter = 'a'; letter <= 'z'; letter++){
 
         int n_words = count_words(word_array, n_total_words, letter);
         printf("Numero de palavras com '%c' = '%d'\n", letter, n_words);
 
+        sum_words += n_words;
         n_words = 0;
+
     }
+
+    printf("Sum = '%d'\n", sum_words);
+    printf("n_total_words = '%d'\n", n_total_words);
 
     free_memory(word_array, n_total_words);
     return 0;
